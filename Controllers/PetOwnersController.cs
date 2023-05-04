@@ -17,14 +17,14 @@ namespace pet_hotel.Controllers
         }
 
 [HttpPost]
-        public PetOwner Post(PetOwner owner){
+        public ActionResult Post(PetOwner owner){
             //insert into the table
             _context.Add(owner);
             _context.SaveChanges();
 
-            return owner;
+            return CreatedAtAction(nameof(Post), new {id = owner.id}, owner);
         }
-        
+
         // This is just a stub for GET / to prevent any weird frontend errors that 
         // occur when the route is missing in this controller
         [HttpGet]
