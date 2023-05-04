@@ -16,10 +16,6 @@ namespace pet_hotel
         public string emailAddress { get; set; }
         [NotMapped]
         public int PetCount => Pets.Count;
-        public List<Pet> Pets {get; set;}
-        public PetOwner()
-        {
-            Pets = new List<Pet>();
-        }
+        public ICollection<Pet> Pets {get; set;}
     }
 }

@@ -6,6 +6,7 @@ using System;
 namespace pet_hotel
 {
     public enum PetBreedType
+    // use index not string
     {
         Shepard,
         Poodle,
@@ -17,6 +18,7 @@ namespace pet_hotel
         Retriever
     }
     public enum PetColorType
+    // use index not string
     {
         White,
         Black,
@@ -37,9 +39,9 @@ namespace pet_hotel
         public PetColorType color {get; set;}
         public DateTime? checkedInAt {get; set;}
         [Required]
-        [ForeignKey("petOwner")]
         public int petOwnerid {get; set;}
         [JsonIgnore]
-        public PetOwner petOwner {get; set;}
+        [ForeignKey("petOwnerid")]
+        public PetOwner PetOwner {get; set;}
     }
 }
